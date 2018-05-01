@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Node调试",
+      "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/build/server.js",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      // 先运行npm script tsc-w，保存ts编译，然后启动服务器
+      // "preLaunchTask": "tsc-w",  // 启动之前执行, tsc-watch 会占用进程，只有结束 ts-watch 之后才可以启动 nodemon ，不适用
+      // "postDebugTask": "tsc-w"   // 启动之后执行， nodemon 会占用进程，只有结束 nodemon 之后才可以启动 tsc-watch ，不适用
+    }
+  ]
+}
