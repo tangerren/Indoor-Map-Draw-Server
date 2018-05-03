@@ -1,19 +1,13 @@
 
 import * as restify from "restify";
+import { config } from './config/env';
+import { app } from './config/restify';
+import { logger } from './utils/logger';
 
-export let server = restify.createServer();
+logger.info(`Connected to database: ${config.db}`);
 
-server.use(restify.plugins.acceptParser(server.acceptable));
-server.use(restify.plugins.queryParser());
-server.use(restify.plugins.bodyParser());
-
-server.get('/', (req, res, next) => {
-	res.send(req.params);
-	next();
+app.listen(config.port, () => {
+	logger.info(`${config.name} is running at ${app.url}`);
 });
 
-server.listen(3000, () => {
-	console.log('%s listening at %s', server.name, server.url);
-});
-
-console.log('Server running on port 3000');
+export { app };
