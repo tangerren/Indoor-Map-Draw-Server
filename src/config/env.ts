@@ -14,7 +14,7 @@ interface ConfigSettings {
   };
 }
 
-const env: string = process.env.NODE_ENV || 'development';
+const env: string = process.env.NODE_ENV || 'dev';
 const debug: string | boolean = process.env.DEBUG || false;
 
 // default settings are for dev environment
@@ -24,7 +24,7 @@ const config: ConfigSettings = {
   debug: debug,
   root: path.join(__dirname, '/..'),
   port: 5000,
-  db: 'mongodb://localhost:27017/dev',
+  db: '../../db/indoor_map_dev.db',
   github: {
     clientID: process.env.GITHUB_CLIENTID,
     clientSecret: process.env.GITHUB_SECRET,
@@ -35,13 +35,13 @@ const config: ConfigSettings = {
 // settings for test environment
 // *IMPORTANT* do not set test db to production db, as the tests will overwrite it.
 if (env === 'test') {
-  config.db = 'mongodb://localhost:27017/test';
+  config.db = '../../db/indoor_map_test.db';
 }
 
-// settings for test environment
+// settings for prod environment
 if (env === 'production') {
   config.port = 5005;
-  config.db = 'mongodb://localhost:27017/prod';
+  config.db = '../../db/indoor_map.db';
   config.debug = false;
 }
 
