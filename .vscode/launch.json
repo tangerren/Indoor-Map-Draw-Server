@@ -8,6 +8,7 @@
       "runtimeExecutable": "nodemon",
       "program": "${workspaceFolder}/build/server.js",
       "restart": true,
+      "autoAttachChildProcesses": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       // 先运行npm script tsc-w，保存ts编译，然后启动服务器

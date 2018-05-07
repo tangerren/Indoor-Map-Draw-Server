@@ -1,14 +1,14 @@
 {
   "name": "indoor-map-draw-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Indoor-Map-Draw 后台管理",
+  "main": "./src/server.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bunyan": "^1.8.12",
     "restify": "^7.2.0",
