@@ -1,0 +1,1 @@
+//# sourceMappingURL=mall.model.js.map

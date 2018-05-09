@@ -1,11 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const env_1 = require("./config/env");
-const restify_1 = require("./config/restify");
-exports.app = restify_1.app;
-const logger_1 = require("./utils/logger");
-logger_1.logger.info(`Connected to database: ${env_1.config.db}`);
-restify_1.app.listen(env_1.config.port, () => {
-    logger_1.logger.info(`${env_1.config.name} is running at ${restify_1.app.url}`);
+const restify = require("restify");
+// import { config } from './config/env';
+// import { app } from './config/restify';
+// import { logger } from './utils/logger';
+// logger.info(`Connected to database: ${config.db}`);
+// app.listen(config.port, () => {
+// 	logger.info(`${config.name} is running at ${app.url}`);
+// });
+// export { app };
+function respond(req, res, next) {
+    res.send('hello ' + req.params.name);
+    next();
+}
+var server = restify.createServer();
+server.get('/hello/:name', respond);
+server.head('/hello/:name', respond);
+server.listen(5000, function () {
+    console.log('%s listening at %s', server.name, server.url);
 });
 //# sourceMappingURL=server.js.map

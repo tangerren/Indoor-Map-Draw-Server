@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'dev';
 const debug = process.env.DEBUG || false;
 // default settings are for dev environment
 const config = {
@@ -10,7 +10,7 @@ const config = {
     debug: debug,
     root: path.join(__dirname, '/..'),
     port: 5000,
-    db: 'mongodb://localhost:27017/dev',
+    db: '../../db/indoor_map_dev.db',
     github: {
         clientID: process.env.GITHUB_CLIENTID,
         clientSecret: process.env.GITHUB_SECRET,
@@ -21,12 +21,12 @@ exports.config = config;
 // settings for test environment
 // *IMPORTANT* do not set test db to production db, as the tests will overwrite it.
 if (env === 'test') {
-    config.db = 'mongodb://localhost:27017/test';
+    config.db = '../../db/indoor_map_test.db';
 }
-// settings for test environment
+// settings for prod environment
 if (env === 'production') {
     config.port = 5005;
-    config.db = 'mongodb://localhost:27017/prod';
+    config.db = '../../db/indoor_map.db';
     config.debug = false;
 }
 //# sourceMappingURL=env.js.map

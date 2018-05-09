@@ -8,10 +8,15 @@ const logger_1 = require("../utils/logger");
 // get path to route handlers
 const pathToRoutes = path.join(env_1.config.root, '/routes');
 // create Restify server with the configured name
-const app = restify.createServer({ name: env_1.config.name });
+const app = restify.createServer({ name: env_1.config.name, });
 exports.app = app;
 // parse the body of the request into req.params
 app.use(restify.plugins.bodyParser());
+app.use(restify.plugins.acceptParser(app.acceptable));
+app.use(restify.plugins.authorizationParser());
+app.use(restify.plugins.dateParser());
+app.use(restify.plugins.queryParser());
+app.use(restify.plugins.urlEncodedBodyParser());
 // user-defined middleware
 app.use((req, res, next) => {
     // Set permissive CORS header - this allows this server to be used only as
