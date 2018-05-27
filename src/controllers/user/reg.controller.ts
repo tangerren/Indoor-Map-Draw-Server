@@ -1,8 +1,8 @@
 
 import * as restify from 'restify';
-import { logger } from '../utils/logger';
-import db from '../config/db';
-import { Sys_User } from '../model/sys.user.model';
+import { logger } from '../../utils/logger';
+import db from '../../config/db';
+import { Sys_User } from '../../model/sys.user.model';
 
 function regUser(req: restify.Request, res: restify.Response, next: restify.Next) {
 	
