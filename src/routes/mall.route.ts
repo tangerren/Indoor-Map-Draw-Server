@@ -1,13 +1,8 @@
-
-
 import * as restify from 'restify';
-import * as controller from '../controllers/test.controller';
+import { getInfo, setInfo, getList } from '../controllers/mall'
 
 export default (api: restify.Server) => {
-
-	api.get('/versioned', restify.plugins.conditionalHandler([
-		{ version: '1.2.0', handler: controller.testV1 },
-		{ version: ['2.0.0', '2.1.0', '2.2.0'], handler: controller.testV2 }
-	]));
-
+	api.get('/mall/getInfo/:mallId', getInfo)
+	api.get('/mall/setInfo', setInfo)
+	api.get('/mall/getList', getList)
 };
