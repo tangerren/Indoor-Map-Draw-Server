@@ -1,1 +1,1 @@
-{"version":3,"file":"base.route.js","sourceRoot":"","sources":["../../src/routes/base.route.ts"],"names":[],"mappings":";;AAGA,6DAA6D;AAE7D,kBAAe,CAAC,GAAmB,EAAE,EAAE;IACtC,GAAG,CAAC,GAAG,CAAC,GAAG,EAAE,UAAU,CAAC,IAAI,CAAC,CAAC;AAC/B,CAAC,CAAC"}
+{"version":3,"file":"base.route.js","sourceRoot":"","sources":["../../src/routes/base.route.ts"],"names":[],"mappings":";;AACA,6DAA6D;AAE7D,kBAAe,CAAC,GAAmB,EAAE,EAAE;IACtC,GAAG,CAAC,GAAG,CAAC,GAAG,EAAE,UAAU,CAAC,IAAI,CAAC,CAAC;AAC/B,CAAC,CAAC"}

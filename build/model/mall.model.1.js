@@ -10,55 +10,80 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const db_1 = require("../config/db");
 const Sequelize = require("sequelize");
-const Floor = db_1.default.define('MALL', {
+const Mall = db_1.default.define('MALL', {
     id: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         field: 'ID',
         primaryKey: true,
         autoIncrement: true
     },
-    mall_id: {
+    name: {
         type: Sequelize.STRING,
-        field: 'MALL_ID',
+        field: 'NAME',
     },
-    floor_num: {
+    address: {
+        type: Sequelize.STRING,
+        field: 'ADDRESS',
+    },
+    startFloor: {
+        type: Sequelize.INTEGER,
+        field: 'FLOOR_START',
+    },
+    endFloor: {
+        type: Sequelize.INTEGER,
+        field: 'FLOOR_END',
+    },
+    floors: {
         type: Sequelize.INTEGER,
         field: 'FLOOR_NUM',
     },
-    geojson: {
+    pName: {
         type: Sequelize.STRING,
-        field: 'GEO_JSON',
+        field: 'OWNER_NAME',
     },
-    picture: {
-        type: Sequelize.BLOB,
-        field: 'PICTURE',
-    }
+    pTel: {
+        type: Sequelize.STRING,
+        field: 'OWNER_PHONE',
+    },
+    creator: {
+        type: Sequelize.STRING,
+        field: 'CREATOR',
+    },
+    date: {
+        type: Sequelize.DATE,
+        field: 'CREATE_DATE',
+    },
 }, {
     timestamps: false,
     freezeTableName: true // 模型名字与表名相同
 });
 exports.default = {
     // 添加数据
-    createUser(floor) {
+    createUser(mall) {
         return __awaiter(this, void 0, void 0, function* () {
-            return Floor.create({
-                id: floor.id,
-                mall_id: floor.mall_id,
-                floor_num: floor.floor_num,
-                geojson: floor.geojson,
-                picture: floor.picture
+            return Mall.create({
+                id: mall.id,
+                name: mall.name,
+                address: mall.address,
+                startFloor: mall.startFloor,
+                endFloor: mall.endFloor,
+                floors: mall.floors,
+                pName: mall.pName,
+                pTel: mall.pTel,
+                creator: mall.creator,
+                date: mall.date
             });
         });
     },
     getOne(parm) {
         return __awaiter(this, void 0, void 0, function* () {
-            return Floor.findOne(parm);
+            return Mall.findOne(parm);
         });
     },
     getAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return Floor.findAll();
+            return Mall.findAll();
         });
     }
 };
-//# sourceMappingURL=floor.model.js.map
+//# sourceMappingURL=mall.model.1.js.map

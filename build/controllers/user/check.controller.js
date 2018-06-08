@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const logger_1 = require("../utils/logger");
+const logger_1 = require("../../utils/logger");
 function login(req, res, next) {
     logger_1.logger.info('login');
     res.json(200, 'login');
     return next();
 }
 exports.login = login;
-function mach_uer() {
+// 检测是否在线
+function check() {
 }
-//# sourceMappingURL=login.controller.js.map
+//# sourceMappingURL=check.controller.js.map

@@ -36,8 +36,7 @@ fs.readdir(pathToRoutes, (err, files) => {
         throw new Error(err);
     }
     else {
-        files
-            .filter((file) => path.extname(file) === '.js')
+        files.filter((file) => path.extname(file) === '.js')
             .forEach((file) => {
             const route = require(path.join(pathToRoutes, file));
             route.default(app);

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const logger_1 = require("../utils/logger");
+const logger_1 = require("../../utils/logger");
 function login(req, res, next) {
     logger_1.logger.info('login');
     res.json(200, 'login');
@@ -9,4 +9,4 @@ function login(req, res, next) {
 exports.login = login;
 function mach_uer() {
 }
-//# sourceMappingURL=login.controller.js.map
+//# sourceMappingURL=login.controller.1.js.map
