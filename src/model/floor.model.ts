@@ -41,7 +41,7 @@ interface IFloor {
 
 export default {
 	// 添加数据
-	async createUser(floor: IFloor) {
+	async create(floor: IFloor) {
 		return Floor.create({
 			id: floor.id,
 			mall_id: floor.mall_id,
