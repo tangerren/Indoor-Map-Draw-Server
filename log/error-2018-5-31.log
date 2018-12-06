@@ -1,1 +1,0 @@
-{"name":"dev","hostname":"DESKTOP-N859PF8","pid":23032,"level":50,"ERROR SYNCING WITH DB":{"name":"SequelizeConnectionError","parent":{"errno":14,"code":"SQLITE_CANTOPEN"},"original":{"errno":14,"code":"SQLITE_CANTOPEN"}},"msg":"","time":"2018-05-31T15:26:06.163Z","v":0}
