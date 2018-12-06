@@ -77,7 +77,7 @@ exports.default = {
     },
     getOne(parm) {
         return __awaiter(this, void 0, void 0, function* () {
-            return Mall.findOne(parm);
+            return Mall.findOne({ "where": parm });
         });
     },
     getAll() {

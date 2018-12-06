@@ -7,7 +7,7 @@ function getList(req, res, next) {
         res.json(200, '获取数据Mall成功' + malls.toString());
         logger_1.logger.info('getMall by id success');
     }).catch(err => {
-        res.json(200, '获取数据Mall失败');
+        res.json(200, '获取数据Mall失败' + err.message);
         logger_1.logger.info('getMall by id failed:' + err);
     });
     return next();

@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const db_1 = require("../config/db");
 const Sequelize = require("sequelize");
-const Floor = db_1.default.define('MALL', {
+const Floor = db_1.default.define('Floor', {
     id: {
         type: Sequelize.STRING,
         field: 'ID',
@@ -39,7 +39,7 @@ const Floor = db_1.default.define('MALL', {
 });
 exports.default = {
     // 添加数据
-    createUser(floor) {
+    create(floor) {
         return __awaiter(this, void 0, void 0, function* () {
             return Floor.create({
                 id: floor.id,
@@ -52,7 +52,7 @@ exports.default = {
     },
     getOne(parm) {
         return __awaiter(this, void 0, void 0, function* () {
-            return Floor.findOne(parm);
+            return Floor.findOne({ "where": parm });
         });
     },
     getAll() {

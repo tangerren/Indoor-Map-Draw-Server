@@ -9,7 +9,7 @@ function getInfo(req, res, next) {
         res.json(200, rsbd.dataValues);
     }).catch((err) => {
         logger_1.logger.info('getMall by id failed');
-        res.json(200, '获取数据Mall失败');
+        res.json(200, '获取数据Mall失败' + err.message);
     });
     return next();
 }
@@ -18,7 +18,7 @@ exports.getInfo = getInfo;
 function setInfo(req, res, next) {
     Mall.default.createUser({
         name: "嘉华大厦",
-        date: "2018-05-27",
+        date: new Date(),
         creator: "王丽",
         address: "博古街36号",
         id: Math.ceil(Math.random() * Math.random() * 1000).toString(),
@@ -30,9 +30,9 @@ function setInfo(req, res, next) {
     }).then((mes) => {
         logger_1.logger.info('add mall success');
         res.json(200, mes);
-    }).catch((e) => {
-        logger_1.logger.error({ "add mallfailed,ERROR SYNCING WITH DB": e });
-        res.json(200, '添加数据Mall失败');
+    }).catch((err) => {
+        logger_1.logger.error({ "add mall failed,ERROR SYNCING WITH DB": err });
+        res.json(200, '添加数据Mall失败' + err.message);
     });
     return next();
 }

@@ -5,7 +5,8 @@
 /package-lock.json
 
 # compiled output
-/dist
+/build/
+/dist/
 /dist-server
 /tmp
 /out-tsc

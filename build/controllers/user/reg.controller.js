@@ -6,6 +6,7 @@ const sys_user_model_1 = require("../../model/sys.user.model");
 function regUser(req, res, next) {
     db_1.default.sync().then(function () {
         sys_user_model_1.Sys_User.create({
+            id: 1,
             username: "Mark Benson",
             email: "112@qq.com",
             password: "555-534-2342"

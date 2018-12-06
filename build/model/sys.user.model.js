@@ -34,6 +34,7 @@ exports.default = {
     createUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
             return Sys_User.create({
+                id: user.id,
                 username: user.username,
                 email: user.email,
                 password: user.password
