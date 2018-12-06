@@ -19,7 +19,7 @@ const debug: string | boolean = process.env.DEBUG || false;
 
 // default settings are for dev environment
 const config: ConfigSettings = {
-  name: 'ClassPortal API',
+  name: 'Indoor-Map-Server',
   env: env,
   debug: debug,
   root: path.join(__dirname, '/..'),

@@ -1,6 +1,6 @@
 import * as bunyan from 'bunyan';
 import * as stream from 'stream';
-import { config } from '../config/env';
+import { config } from '../config/config';
 
 interface LoggerSettings {
   name: string;

@@ -1,10 +1,8 @@
-
-import * as restify from "restify";
-import { config } from './config/env';
+import { config } from './config/config';
 import { app } from './config/restify';
 import { logger } from './utils/logger';
 
-logger.info(`Connected to database: ${config.db}`);
+logger.info(`连接至数据库: ${config.db}`);
 
 app.listen(config.port, () => {
 	logger.info(`${config.name} is running at ${app.url}`);

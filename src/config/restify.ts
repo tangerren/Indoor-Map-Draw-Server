@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as restify from 'restify';
 import * as path from 'path';
-import { config } from './env';
+import { config } from './config';
 import { logger } from '../utils/logger';
 
 // get path to route handlers
@@ -11,7 +11,7 @@ const pathToRoutes: string = path.join(config.root, '/routes');
 const app: restify.Server = restify.createServer({ name: config.name, });
 
 // parse the body of the request into req.params
-app.use(restify.plugins.bodyParser());
+app.use(restify.plugins.bodyParser({ mapParams: false, }));
 app.use(restify.plugins.acceptParser(app.acceptable));
 app.use(restify.plugins.authorizationParser());
 app.use(restify.plugins.dateParser());
@@ -23,16 +23,17 @@ app.use(restify.plugins.urlEncodedBodyParser());
 app.use((req: any, res: any, next: any) => {
   // Set permissive CORS header - this allows this server to be used only as
   // an API server in conjunction with something like webpack-dev-server.
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  
   // disable caching so we'll always get the latest data
-  res.setHeader('Cache-Control', 'no-cache');
+  res.header('Cache-Control', 'no-cache');
 
   // log the request method and url
-  logger.info(`${req.method} ${req.url}`);
+  logger.info(`请求：${req.method} ${req.url}`);
 
   // log the request body
-  logger.info(`Params: ${JSON.stringify(req.params)}`);
+  logger.info(`参数: ${JSON.stringify(req.params)}`);
 
   return next();
 });
