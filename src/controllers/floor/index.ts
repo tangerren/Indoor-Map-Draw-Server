@@ -1,10 +1,12 @@
 import { getInfo, setInfo } from './floor.info.controller';
-import { getFloors } from './floor.list.controller';
+import { getFloorByMall } from './floor.list.controller';
+import { uploadImage } from './floor.uploadImage';
 
 
 
 export {
 	getInfo,
 	setInfo,
-	getFloors
+	getFloorByMall,
+	uploadImage
 };

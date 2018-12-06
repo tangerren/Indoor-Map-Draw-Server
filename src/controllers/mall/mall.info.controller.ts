@@ -10,7 +10,7 @@ function getInfo(req: restify.Request, res: restify.Response, next: restify.Next
 		res.json(200, rsbd.dataValues);
 	}).catch((err) => {
 		logger.info('getMall by id failed');
-		res.json(200, '获取数据Mall失败');
+		res.json(200, '获取数据Mall失败' + err.message);
 	});
 	return next();
 }
@@ -19,7 +19,7 @@ function getInfo(req: restify.Request, res: restify.Response, next: restify.Next
 function setInfo(req: restify.Request, res: restify.Response, next: restify.Next) {
 	Mall.default.createUser({
 		name: "嘉华大厦",
-		date: "2018-05-27",
+		date: new Date(),
 		creator: "王丽",
 		address: "博古街36号",
 		id: Math.ceil(Math.random() * Math.random() * 1000).toString(),
@@ -31,9 +31,9 @@ function setInfo(req: restify.Request, res: restify.Response, next: restify.Next
 	}).then((mes) => {
 		logger.info('add mall success');
 		res.json(200, mes);
-	}).catch((e) => {
-		logger.error({ "add mallfailed,ERROR SYNCING WITH DB": e });
-		res.json(200, '添加数据Mall失败');
+	}).catch((err) => {
+		logger.error({ "add mall failed,ERROR SYNCING WITH DB": err });
+		res.json(200, '添加数据Mall失败' + err.message);
 	});
 	return next();
 }

@@ -53,7 +53,7 @@ const Mall = db.define<any, IMall>('MALL', {
 
 interface IMall {
 	name: string,
-	date: string,
+	date: Date,
 	creator: string,
 	address: string,
 	id: string,
@@ -81,9 +81,9 @@ export default {
 		});
 	},
 	async getOne(parm) {
-		return Mall.findOne(parm)
+		return Mall.findOne({ "where": parm });
 	},
 	async getAll() {
-		return Mall.findAll()
+		return Mall.findAll();
 	}
 }

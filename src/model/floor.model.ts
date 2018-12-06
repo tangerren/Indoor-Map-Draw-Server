@@ -2,7 +2,7 @@ import db from '../config/db';
 import * as Sequelize from 'sequelize';
 
 
-const Floor = db.define<any, IFloor>('MALL', {
+const Floor = db.define<any, IFloor>('Floor', {
 	id: {
 		type: Sequelize.STRING,
 		field: 'ID',
@@ -51,9 +51,9 @@ export default {
 		});
 	},
 	async getOne(parm) {
-		return Floor.findOne(parm)
+		return Floor.findOne({ "where": parm });
 	},
 	async getAll() {
-		return Floor.findAll()
+		return Floor.findAll();
 	}
 }

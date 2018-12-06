@@ -10,7 +10,7 @@ function getInfo(req: restify.Request, res: restify.Response, next: restify.Next
 		res.json(200, rsbd.dataValues);
 	}).catch((err) => {
 		logger.info('get Floor by id failed');
-		res.json(200, '获取数据Floor失败');
+		res.json(200, '获取数据Floor失败' + err.message);
 	});
 	return next();
 }
@@ -26,9 +26,9 @@ function setInfo(req: restify.Request, res: restify.Response, next: restify.Next
 	}).then((mes) => {
 		logger.info('add floor success');
 		res.json(200, mes);
-	}).catch((e) => {
-		logger.error({ "add floor failed,ERROR SYNCING WITH DB": e });
-		res.json(200, '添加数据Floor失败');
+	}).catch((err) => {
+		logger.error({ "add floor failed,ERROR SYNCING WITH DB": err });
+		res.json(200, '添加数据Floor失败' + err.message);
 	});
 	return next();
 }

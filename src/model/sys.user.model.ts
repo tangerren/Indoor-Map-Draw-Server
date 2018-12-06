@@ -24,6 +24,7 @@ const Sys_User = db.define<any, IUser>('user', {
 
 
 interface IUser {
+	id: number,
 	username: string,
 	email: string,
 	password: string
@@ -32,6 +33,7 @@ interface IUser {
 export default {
 	async createUser(user: IUser) {
 		return Sys_User.create({
+			id: user.id,
 			username: user.username,
 			email: user.email,
 			password: user.password

@@ -9,7 +9,7 @@ function getList(req: restify.Request, res: restify.Response, next: restify.Next
 		res.json(200, '获取数据Mall成功' + malls.toString());
 		logger.info('getMall by id success');
 	}).catch(err => {
-		res.json(200, '获取数据Mall失败');
+		res.json(200, '获取数据Mall失败' + err.message);
 		logger.info('getMall by id failed:' + err);
 	});
 

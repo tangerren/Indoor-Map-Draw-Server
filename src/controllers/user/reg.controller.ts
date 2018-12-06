@@ -5,9 +5,10 @@ import db from '../../config/db';
 import { Sys_User } from '../../model/sys.user.model';
 
 function regUser(req: restify.Request, res: restify.Response, next: restify.Next) {
-	
+
 	db.sync().then(function () {
 		Sys_User.create({
+			id: 1,
 			username: "Mark Benson",
 			email: "112@qq.com",
 			password: "555-534-2342"
